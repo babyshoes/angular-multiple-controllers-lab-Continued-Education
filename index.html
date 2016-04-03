@@ -9,8 +9,16 @@
 <body>
 
     <div ng-app="app">
-        <div ng-controller="ContactController">
-            Hello, {{ name }}!
+        <div ng-controller="ContactController as contact">
+            Hello, {{ contact.name }}!
+            Your sensitive personal information is as follows:
+            {{ contact.name }}, {{ contact.phone }}
+            <div ng-controller="StaffController as staff">
+                Hello, {{ staff.name }}!
+                Your sensitive personal information is as follows:
+                {{ staff.email }}, {{ staff.phone }}
+            </div>
+            <button ng-click="contact.changeName()">change {{ contact.name }}'s name</button>
         </div>
     </div>
 
